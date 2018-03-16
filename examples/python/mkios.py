@@ -12,33 +12,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 class MKAndroidTests(unittest.TestCase):
     def setUp(self):
         desired_caps = {}
-        desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = '8.0'
-        desired_caps['deviceName'] = 'Google Pixel2 XL'
-        desired_caps['appPackage'] = 'com.hp.marykay'
-        desired_caps['appActivity'] = 'MaryKayActivity'
+        desired_caps['platformName'] = 'iOS'
+        desired_caps['platformVersion'] = '11.2'
+        desired_caps['deviceName'] = 'iPhone X'
+        desired_caps['app'] = '/Users/MK/Desktop/appium-sample-code/apps/TestApp/MaryKayOS.app'
+        desired_caps['noReset'] = 'true'
 
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 
-    def login(self):
-        el0 = self.driver.find_element_by_id("com.android.packageinstaller:id/permission_allow_button")
-        el0.click()
-        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[16]/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.EditText")))
-        el1 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[16]/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.EditText")
-        el1.send_keys("000000000064")
-        el2 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[16]/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.EditText")
-        el2.send_keys("ywms_2017")
-        el3 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[16]/android.widget.Button")
-        el3.click()
-        WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.Button")))
-        el4 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.widget.Button")
-        el4.click()
-        el5 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout")
-        el5.click()
-        el6 = self.driver.find_element_by_xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.FrameLayout[5]/android.widget.Button")
-        el6.click()
-
-    def enter_ordering(self):
+    def test_simple_actions(self):
         el0 = self.driver.find_element_by_id("com.android.packageinstaller:id/permission_allow_button")
         el0.click()
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout[16]/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.EditText")))
